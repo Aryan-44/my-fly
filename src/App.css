@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
+/* --- Global Styles --- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #111827; /* Dark background */
+  color: #f3f4f6; /* Light text */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* --- DashboardLayout.js Styles --- */
+.dashboard-layout {
   display: flex;
-  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 256px; /* w-64 */
+  flex-shrink: 0;
+  background-color: #1f2937; /* gray-800 */
+  border-right: 1px solid #374151; /* gray-700 */
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-header {
+  padding: 1.5rem; /* p-6 */
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700;
+  color: #60a5fa; /* blue-400 */
+}
+
+.sidebar-nav {
+  padding: 0 1rem; /* px-4 */
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.nav-item a {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0.75rem; /* p-3 */
+  border-radius: 0.5rem; /* rounded-lg */
+  transition: background-color 0.2s, color 0.2s;
+  color: #9ca3af; /* gray-400 */
 }
 
-.App-link {
-  color: #61dafb;
+/* Class for the icons inside the nav */
+.nav-item a .icon {
+  margin-right: 0.75rem; /* space-x-3 */
+  width: 20px;
+  height: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-item a:hover {
+  background-color: #374151; /* gray-700 */
+  color: #fff;
+}
+
+.nav-item a.active {
+  background-color: #2563eb; /* blue-600 */
+  color: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem; /* p-8 */
+  overflow: auto;
+}
+
+/* --- Dashboard.js Styles --- */
+.dashboard-overview h1 {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  margin-bottom: 1.5rem; /* mb-6 */
+  margin-top: 0;
+}
+
+.metrics-grid {
+  display: grid;
+  gap: 1.5rem; /* gap-6 */
+  grid-template-columns: 1fr; /* 1 col on small screens */
+  margin-bottom: 2rem; /* mb-8 */
+}
+
+/* Medium screens (md) */
+@media (min-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cols */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Large screens (lg) */
+@media (min-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 cols */
   }
+}
+
+.metric-card {
+  background-color: rgba(31, 41, 55, 0.7); /* bg-gray-800/70 */
+  padding: 1.5rem; /* p-6 */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  border: 1px solid;
+  backdrop-filter: blur(4px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+  color: #9ca3af; /* gray-400 */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-icon {
+  width: 20px;
+  height: 20px;
+  color: #60a5fa; /* text-blue-400 */
+}
+
+.card-body {
+  margin-top: 0.5rem; /* mt-2 */
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.card-value {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  color: #fff;
+}
+
+.card-trend {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem; /* text-sm */
+}
+
+.card-trend .trend-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.25rem; /* space-x-1 */
+}
+
+/* Dynamic colors for trend */
+.trend-positive {
+  color: #4ade80; /* text-green-400 */
+}
+.trend-negative {
+  color: #f87171; /* text-red-400 */
+}
+
+.card-footer {
+  margin-top: 0.25rem; /* mt-1 */
+  font-size: 0.75rem; /* text-xs */
+  color: #6b7280; /* gray-500 */
+}
+
+.placeholder-chart {
+  background-color: rgba(31, 41, 55, 0.7); /* bg-gray-800/70 */
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(59, 130, 246, 0.5); /* border-blue-700/50 */
+  height: 24rem; /* h-96 */
+}
+.placeholder-chart h2 {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600;
+  margin-bottom: 1rem; /* mb-4 */
+  margin-top: 0;
+}
+.placeholder-chart p {
+  color: #9ca3af; /* gray-400 */
 }
