@@ -1,6 +1,7 @@
 /* --- Global Styles --- */
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -17,6 +18,123 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Page Header Style */
+.page-header {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+/* Reusable Content Box */
+.content-box {
+  background-color: #1f2937; /* gray-800 */
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #374151; /* gray-700 */
+}
+.content-box h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+.content-box p {
+  color: #9ca3af; /* gray-400 */
+  line-height: 1.6;
+}
+
+/* --- Login Page Styles --- */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  background-color: #1f2937; /* gray-800 */
+  border-radius: 0.75rem;
+  padding: 2rem;
+  border: 1px solid #374151; /* gray-700 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.login-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0 0;
+}
+
+.login-form .input-group {
+  margin-bottom: 1rem;
+}
+.login-form .input-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #9ca3af; /* gray-400 */
+  margin-bottom: 0.5rem;
+}
+.login-form .input-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #374151; /* gray-700 */
+  border: 1px solid #4b5563; /* gray-600 */
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+}
+.login-form .input-group input:focus {
+  outline: none;
+  border-color: #2563eb; /* blue-600 */
+  box-shadow: 0 0 0 2px #2563eb;
+}
+
+/* --- Button Styles --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #374151;
+  color: #fff;
+}
+.btn .icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+}
+.btn:hover {
+  background-color: #4b5563;
+}
+.btn.btn-primary {
+  background-color: #2563eb; /* blue-600 */
+  color: #fff;
+  width: 100%; /* Make login button full width */
+}
+.btn.btn-primary:hover {
+  background-color: #1d4ed8; /* blue-700 */
 }
 
 /* --- DashboardLayout.js Styles --- */
@@ -36,47 +154,49 @@ a {
 }
 
 .sidebar-header {
-  padding: 1.5rem; /* p-6 */
-  font-size: 1.5rem; /* text-2xl */
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  font-size: 1.5rem;
   font-weight: 700;
+  color: #fff;
+}
+.logo-icon {
+  width: 32px;
+  height: 32px;
   color: #60a5fa; /* blue-400 */
+  margin-right: 0.75rem;
 }
 
 .sidebar-nav {
   padding: 0 1rem; /* px-4 */
 }
-
 .nav-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .nav-item {
   margin-bottom: 0.5rem; /* mb-2 */
 }
-
 .nav-item a {
   display: flex;
   align-items: center;
-  padding: 0.75rem; /* p-3 */
+  padding: 0.75rem 1rem; /* p-3 */
   border-radius: 0.5rem; /* rounded-lg */
   transition: background-color 0.2s, color 0.2s;
   color: #9ca3af; /* gray-400 */
+  font-weight: 500;
 }
-
-/* Class for the icons inside the nav */
 .nav-item a .icon {
-  margin-right: 0.75rem; /* space-x-3 */
   width: 20px;
   height: 20px;
+  margin-right: 0.75rem; /* space-x-3 */
 }
-
 .nav-item a:hover {
   background-color: #374151; /* gray-700 */
   color: #fff;
 }
-
 .nav-item a.active {
   background-color: #2563eb; /* blue-600 */
   color: #fff;
@@ -90,29 +210,18 @@ a {
   overflow: auto;
 }
 
-/* --- Dashboard.js Styles --- */
-.dashboard-overview h1 {
-  font-size: 1.875rem; /* text-3xl */
-  font-weight: 700;
-  margin-bottom: 1.5rem; /* mb-6 */
-  margin-top: 0;
-}
-
+/* --- DashboardPage.js Styles --- */
 .metrics-grid {
   display: grid;
   gap: 1.5rem; /* gap-6 */
   grid-template-columns: 1fr; /* 1 col on small screens */
   margin-bottom: 2rem; /* mb-8 */
 }
-
-/* Medium screens (md) */
 @media (min-width: 768px) {
   .metrics-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 cols */
   }
 }
-
-/* Large screens (lg) */
 @media (min-width: 1024px) {
   .metrics-grid {
     grid-template-columns: repeat(4, 1fr); /* 4 cols */
@@ -121,86 +230,134 @@ a {
 
 .metric-card {
   background-color: rgba(31, 41, 55, 0.7); /* bg-gray-800/70 */
-  padding: 1.5rem; /* p-6 */
-  border-radius: 0.75rem; /* rounded-xl */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   border: 1px solid;
   backdrop-filter: blur(4px);
 }
-
 .card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .card-title {
-  font-size: 0.875rem; /* text-sm */
+  font-size: 0.875rem;
   font-weight: 500;
   color: #9ca3af; /* gray-400 */
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-
 .card-icon {
   width: 20px;
   height: 20px;
   color: #60a5fa; /* text-blue-400 */
 }
-
 .card-body {
-  margin-top: 0.5rem; /* mt-2 */
+  margin-top: 0.5rem;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
 }
-
 .card-value {
-  font-size: 1.875rem; /* text-3xl */
+  font-size: 1.875rem;
   font-weight: 700;
   color: #fff;
 }
-
 .card-trend {
   display: flex;
   align-items: center;
-  font-size: 0.875rem; /* text-sm */
+  font-size: 0.875rem;
 }
-
 .card-trend .trend-icon {
   width: 16px;
   height: 16px;
-  margin-right: 0.25rem; /* space-x-1 */
+  margin-right: 0.25rem;
 }
-
-/* Dynamic colors for trend */
 .trend-positive {
   color: #4ade80; /* text-green-400 */
 }
 .trend-negative {
   color: #f87171; /* text-red-400 */
 }
-
 .card-footer {
-  margin-top: 0.25rem; /* mt-1 */
-  font-size: 0.75rem; /* text-xs */
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
   color: #6b7280; /* gray-500 */
 }
 
-.placeholder-chart {
-  background-color: rgba(31, 41, 55, 0.7); /* bg-gray-800/70 */
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(59, 130, 246, 0.5); /* border-blue-700/50 */
-  height: 24rem; /* h-96 */
+/* Generic Chart Placeholder */
+.placeholder-chart,
+.chart-placeholder {
+  background-color: #111827; /* bg-gray-900 */
+  border-radius: 0.5rem;
+  border: 1px solid #374151; /* gray-700 */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  color: #6b7280; /* gray-500 */
 }
-.placeholder-chart h2 {
-  font-size: 1.25rem; /* text-xl */
-  font-weight: 600;
-  margin-bottom: 1rem; /* mb-4 */
-  margin-top: 0;
+.chart-placeholder .chart-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
 }
-.placeholder-chart p {
+
+/* --- SeatDemandPage.js Styles --- */
+.grid-layout-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .grid-layout-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.data-upload-portal {
+  border: 2px dashed #4b5563; /* gray-600 */
+  border-radius: 0.5rem;
+  padding: 2rem;
+  text-align: center;
   color: #9ca3af; /* gray-400 */
+  margin-top: 1rem;
+}
+.data-upload-portal .upload-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  color: #6b7280; /* gray-500 */
+  margin-left: auto;
+  margin-right: auto;
+}
+.data-upload-portal .btn {
+  margin-top: 1rem;
+}
+
+.scenario-tool .input-group {
+  margin-bottom: 1rem;
+}
+.scenario-tool .input-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #9ca3af; /* gray-400 */
+  margin-bottom: 0.5rem;
+}
+.scenario-tool .input-group input,
+.scenario-tool .input-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #374151; /* gray-700 */
+  border: 1px solid #4b5563; /* gray-600 */
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+}
+.scenario-tool .btn {
+  width: 100%;
 }

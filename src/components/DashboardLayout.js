@@ -7,35 +7,45 @@ import {
   Users,
 } from 'lucide-react';
 
-// This is the array your Dashboard.js imports
-// We add icons here so the sidebar can display them
+// 1. Add a 'key' to each item. This key must match
+//    the 'currentPage' state in App.js
 export const navItems = [
-  { name: 'Dashboard', icon: LayoutDashboard, href: '#' },
-  { name: 'Seat Demand', icon: BarChart, href: '#' },
-  { name: 'Flight Ops', icon: PlaneTakeoff, href: '#' },
-  { name: 'Passengers', icon: Users, href: '#' },
+  { name: 'Dashboard', key: 'dashboard', icon: LayoutDashboard },
+  { name: 'Seat Demand', key: 'seatDemand', icon: BarChart },
+  { name: 'Flight Ops', key: 'flightOps', icon: PlaneTakeoff },
+  { name: 'Passengers', key: 'passengers', icon: Users },
 ];
 
-const DashboardLayout = ({ children, activePage }) => {
+// 2. Accept 'currentPage', 'onNavigate', and 'children'
+const DashboardLayout = ({ currentPage, onNavigate, children }) => {
   return (
     <div className="dashboard-layout">
       {/* --- Sidebar --- */}
       <aside className="sidebar">
-        <div className="sidebar-header">FlightDash</div>
+        <div className="sidebar-header">
+          {/* I'm using one of your icons for the logo */}
+          <PlaneTakeoff className="logo-icon" />
+          FlightDash
+        </div>
 
         <nav className="sidebar-nav">
           <ul className="nav-list">
             {navItems.map((item) => {
               const Icon = item.icon;
-              // Check if this nav item is the active page
-              const isActive = item.name === activePage;
+              // 3. Compare 'item.key' to 'currentPage'
+              const isActive = item.key === currentPage;
 
               return (
                 <li key={item.name} className="nav-item">
                   <a
-                    href={item.href}
-                    // Dynamically add 'active' class from App.css
+                    // 4. Dynamically add 'active' class
                     className={isActive ? 'active' : ''}
+                    // 5. Add the onClick handler
+                    onClick={(e) => {
+                      e.preventDefault(); // Stop the link from jumping
+                      onNavigate(item.key); // Call the function from App.js
+                    }}
+                    href="#" // Keep href for <a> tag semantics
                   >
                     <Icon className="icon" />
                     <span>{item.name}</span>
@@ -48,6 +58,7 @@ const DashboardLayout = ({ children, activePage }) => {
       </aside>
 
       {/* --- Main Content Area --- */}
+      {/* 6. Render the active page (passed as children) */}
       <main className="main-content">{children}</main>
     </div>
   );
