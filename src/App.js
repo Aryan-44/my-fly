@@ -10,7 +10,7 @@ import FlightOpsPage from './pages/FlightOpsPage'; // <-- 1. UNCOMMENT THIS LINE
 import PassengersPage from './pages/PassengersPage';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const [currentPage, setCurrentPage] = useState('dashboard');
 
   const handleLogin = () => {
