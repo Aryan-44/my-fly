@@ -62,7 +62,7 @@ const SeatDemandPage = () => {
 
     try {
       // [FIX] Use the API_BASE constant instead of a hardcoded URL
-      const res = await fetch(`${API_BASE}/upload`, {
+      const res = await fetch(`${API_BASE}/api/seat-demand/upload`, {
         method: "POST",
         body: formData,
       });
