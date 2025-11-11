@@ -82,6 +82,7 @@ function DashboardPage() {
       trend: data.trends.on_time,
     },
   ];
+  
 
   const passengerTrend = data.charts?.passenger_trend || [];
   const avgDelayChart = data.charts?.avg_delay_chart || [];

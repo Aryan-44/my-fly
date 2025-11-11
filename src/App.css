@@ -361,3 +361,800 @@ a {
 .scenario-tool .btn {
   width: 100%;
 }
+.predicted-value {
+  background: linear-gradient(90deg, #4ade80, #22d3ee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.predicted-value span {
+  font-size: 1.25rem;
+  font-weight: 500;
+  -webkit-text-fill-color: #fff;
+}
+.prediction-chart .chart-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  color: #6b7280; /* gray-500 */
+}
+
+/* --- PassengersPage.js Styles --- */
+.passengers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.passengers-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;  
+}
+.search-bar { 
+  position: relative;
+  width: 300px;
+}
+.search-bar .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #9ca3af; /* gray-400 */
+}
+.search-bar input {
+  width: 100%;      
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  background-color: #374151; /* gray-700 */     
+  border: 1px solid #4b5563; /* gray-600 */     
+  border-radius: 0.5rem;     
+  color: #fff;     
+  font-size: 1rem; 
+}
+.search-bar input:focus {     
+  outline: none;
+  border-color: #2563eb; /* blue-600 */     
+  box-shadow: 0 0 0 2px #2563eb; 
+} 
+.passengers-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1f2937; /* gray-800 */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.passengers-table th,
+.passengers-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #374151; /* gray-700 */
+}
+.passengers-table th {
+  background-color: #374151; /* gray-700 */
+  color: #9ca3af; /* gray-400 */
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+.passengers-table td {
+  color: #f3f4f6; /* gray-100 */
+}
+.passengers-table tr:hover {
+  background-color: #2563eb; /* blue-600 */
+}
+.passengers-table tr:hover td {
+  color: #fff;
+} 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.pagination .page-item {
+  margin: 0 0.25rem;
+}
+.pagination .page-link {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: #374151; /* gray-700 */
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.pagination .page-link:hover {
+  background-color: #4b5563; /* gray-600 */
+}
+.pagination .page-link.active {
+  background-color: #2563eb; /* blue-600 */
+  color: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+} 
+/* --- FlightDetailsPage.js Styles --- */
+.flight-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.flight-details-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}  
+.flight-info {
+  background-color: #374151; /* gray-700 */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #f3f4f6; /* gray-100 */
+}
+.flight-info p {
+  margin: 0.25rem 0;
+}
+.flight-metrics {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;  
+}
+@media (min-width: 768px) {
+  .flight-metrics {
+    grid-template-columns: repeat(2, 1fr);  
+  }
+}
+@media (min-width: 1024px) {
+  .flight-metrics {
+    grid-template-columns: repeat(4, 1fr);  
+  }
+}
+.metric-card {
+  background-color: rgba(31, 41, 55, 0.7); /* bg-gray-800/70 */
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid;
+  backdrop-filter: blur(4px);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #9ca3af; /* gray-400 */  
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.card-icon {
+  width: 20px;
+  height: 20px;
+  color: #60a5fa; /* text-blue-400 */
+}
+.card-body {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.card-value {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #fff;
+}
+.card-trend {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+}
+.card-trend .trend-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.25rem;
+}
+.trend-positive {
+  color: #4ade80; /* text-green-400 */
+}
+.trend-negative {
+  color: #f87171; /* text-red-400 */
+}
+.card-footer {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #6b7280; /* gray-500 */
+} 
+/* Generic Chart Placeholder */
+.placeholder-chart,
+.chart-placeholder {
+  background-color: #111827; /* bg-gray-900 */
+  border-radius: 0.5rem;
+  border: 1px solid #374151; /* gray-700 */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  color: #6b7280; /* gray-500 */
+}
+.chart-placeholder .chart-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+/* ===============================
+   ✨ Enhancements and Fixes Patch
+   =============================== */
+
+/* --- Smooth Page Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* --- Improve Sidebar Scroll --- */
+.sidebar {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #374151 #1f2937;
+}
+
+/* --- Loading Spinner --- */
+.loading-spinner {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top: 4px solid #2563eb;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Table Improvements --- */
+.passengers-table-wrapper {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+}
+.passengers-table th,
+.passengers-table td {
+  white-space: nowrap;
+}
+.passengers-table tr:hover {
+  transform: scale(1.01);
+  transition: transform 0.2s ease;
+}
+
+/* --- Glass Card Hover Effects --- */
+.metric-card,
+.content-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.metric-card:hover,
+.content-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+/* --- Gradient Accent Headings --- */
+.page-header {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+
+
+/* --- Chart Placeholder Glow --- */
+.placeholder-chart {
+  position: relative;
+  overflow: hidden;
+}
+.placeholder-chart::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -150%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  animation: shimmer 2.5s infinite;
+}
+@keyframes shimmer {
+  100% { transform: translateX(150%); }
+}
+
+/* --- Button Hover Effects --- */
+.btn {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 640px) {
+  .search-bar {
+    width: 100%;
+  }
+  .flight-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === SEAT DEMAND PAGE ENHANCED DESIGN === */
+
+.seat-demand-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+/* Upload Section */
+.upload-section {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) {
+  .upload-section {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+  }
+}
+
+.data-upload-portal {
+  border: 2px dashed #4b5563;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  text-align: center;
+  color: #d1d5db;
+  background: rgba(31, 41, 55, 0.5);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+.data-upload-portal:hover {
+  border-color: #60a5fa;
+  background: rgba(31, 41, 55, 0.8);
+  transform: scale(1.02);
+}
+.data-upload-portal .upload-icon {
+  width: 56px;
+  height: 56px;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+}
+.data-upload-portal input[type="file"] {
+  display: none;
+}
+.data-upload-portal label {
+  cursor: pointer;
+  display: inline-block;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+.data-upload-portal label:hover {
+  background-color: #1d4ed8;
+}
+
+/* Results Summary Box */
+.result-summary {
+  background: linear-gradient(145deg, #1f2937, #111827);
+  border-radius: 1rem;
+  border: 1px solid #374151;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.result-summary h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: #f9fafb;
+}
+.result-stat-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+@media (min-width: 768px) {
+  .result-stat-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.result-card {
+  background: rgba(55, 65, 81, 0.6);
+  border: 1px solid rgba(75, 85, 99, 0.8);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.result-card:hover {
+  background: rgba(75, 85, 99, 0.9);
+  transform: translateY(-3px);
+}
+.result-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #22d3ee;
+}
+.result-label {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin-top: 0.25rem;
+}
+
+/* Trend Charts Section */
+.trends-section {
+  background-color: #1f2937;
+  border-radius: 1rem;
+  border: 1px solid #374151;
+  padding: 1.5rem;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.trends-section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.trend-charts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .trend-charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Chart Containers */
+.chart-box {
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid #374151;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.chart-box h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+}
+.chart-placeholder {
+  color: #6b7280;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 2rem;
+  border: 1px dashed #4b5563;
+  border-radius: 0.5rem;
+}
+.chart-box canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Predicted Value Highlight */
+.predicted-highlight {
+  text-align: center;
+  padding: 2rem;
+}
+.predicted-value {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #4ade80, #22d3ee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.predicted-sub {
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+/* Loading & Error States */
+.analyzer-loading {
+  text-align: center;
+  color: #9ca3af;
+  padding: 2rem;
+  font-style: italic;
+}
+.error-message {
+  background-color: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+/* === FLIGHT OPS PAGE ENHANCED === */
+
+.page-header {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #f9fafb;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.content-box {
+  background-color: rgba(17, 24, 39, 0.9); /* glass dark */
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+.content-box:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ======== Real-time ops header ======== */
+.content-box h2 {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flightops-header {
+  background: linear-gradient(90deg, rgba(59,130,246,0.1), rgba(16,185,129,0.1));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: inset 0 0 10px rgba(59,130,246,0.15);
+}
+
+/* Latency Graph */
+svg {
+  overflow: visible;
+}
+
+#latGrad stop:first-child {
+  animation: pulseLight 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseLight {
+  from {
+    stop-color: #22d3ee;
+  }
+  to {
+    stop-color: #4ade80;
+  }
+}
+
+.latency-chart {
+  background: rgba(30,41,59,0.7);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.75rem;
+  box-shadow: inset 0 0 8px rgba(59,130,246,0.15);
+}
+
+/* Latency Number */
+.latency-chart .text-xs {
+  color: #a5f3fc;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* Disruptions */
+ul.space-y-2 li {
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+ul.space-y-2 li:hover {
+  background: rgba(37,99,235,0.1);
+  transform: translateY(-2px);
+}
+ul.space-y-2 li svg {
+  color: #60a5fa;
+}
+
+/* Flight Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: rgba(17,24,39,0.6);
+}
+thead {
+  background-color: rgba(31,41,55,0.9);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+th, td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+td {
+  transition: background 0.2s ease;
+}
+tbody tr:hover {
+  background-color: rgba(37,99,235,0.08);
+}
+
+/* Status badges */
+span[class*="bg-emerald"] {
+  box-shadow: 0 0 8px rgba(34,197,94,0.4);
+}
+span[class*="bg-blue"] {
+  box-shadow: 0 0 8px rgba(59,130,246,0.4);
+}
+span[class*="bg-amber"] {
+  box-shadow: 0 0 8px rgba(251,191,36,0.4);
+}
+span[class*="bg-rose"] {
+  box-shadow: 0 0 8px rgba(244,63,94,0.4);
+}
+
+/* Animated loading text */
+.opacity-70.mt-2 {
+  animation: shimmer 2s linear infinite;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05), rgba(255,255,255,0.2));
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Scroll */
+.overflow-x-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* === Live Indicator (for Flight Ops) === */
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.4);
+  color: #f87171;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  animation: pulse-text 2s infinite ease-in-out;
+}
+
+.live-indicator .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 10px rgba(239,68,68,0.7);
+  animation: pulse-dot 1.2s infinite ease-in-out;
+}
+
+/* Pulse animation for dot */
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.6;
+  }
+}
+
+/* Gentle glow animation for text */
+@keyframes pulse-text {
+  0%, 100% {
+    color: #f87171;
+    text-shadow: 0 0 8px rgba(239,68,68,0.6);
+  }
+  50% {
+    color: #fca5a5;
+    text-shadow: 0 0 12px rgba(239,68,68,0.9);
+  }
+}
+/* Flight Ops Latency Graph Enhancements */
+.recharts-tooltip-wrapper {
+  z-index: 10;
+}
+.recharts-tooltip-cursor {
+  fill: rgba(37, 99, 235, 0.2);
+}
+.recharts-tooltip-label {
+  font-weight: 600;
+  color: #f3f4f6;
+}
+.recharts-tooltip-item {
+  font-size: 0.875rem;
+}
+.recharts-tooltip-item-name {
+  color: #9ca3af;
+}
+.recharts-tooltip-item-value {
+  font-weight: 700;
+  color: #fff;
+} 
+.recharts-cartesian-axis-tick-value {
+  fill: #9ca3af;
+  font-size: 0.875rem;
+}
+.recharts-cartesian-axis-line {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+.recharts-cartesian-grid-line {
+  stroke: rgba(255, 255, 255, 0.05);
+}
+.content-box h2 {
+  font-size: 1.25rem;
+  font-weight: 700; 
+  color: #f3f4f6; /* gray-100 */
+  margin-bottom: 1rem;
+} 
+.metric-card .card-title {
+  color: #d1d5db; /* gray-300 */
+}
+.metric-card .card-value {
+  color: #e0e7ff; /* indigo-100 */
+} 
+.metric-card .card-icon {
+  color: #93c5fd; /* blue-300 */
+}
+.metric-card .card-trend .trend-positive {
+  color: #86efac; /* green-300 */
+}
+.metric-card .card-trend .trend-negative {
+  color: #fca5a5; /* red-300 */
+}
+.metric-card .card-footer {
+  color: #9ca3af; /* gray-400 */  
+}
+/* ======= END OF ENHANCEMENTS PATCH ======= */
+
+
+
+
+
