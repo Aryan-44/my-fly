@@ -24,6 +24,7 @@ class SeatDemandHistory(Base):
     festive_avg = Column(Float, nullable=True)
     message = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+    
 
 
 def get_session(db_url="sqlite:///passengers.db"):

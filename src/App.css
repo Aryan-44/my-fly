@@ -50,80 +50,172 @@ a {
 }
 
 /* --- Login Page Styles --- */
+/* === FLIGHTDASH LOGIN PAGE REIMAGINED === */
+
 .login-container {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 1rem;
+  background: radial-gradient(circle at 25% 25%, rgba(59,130,246,0.05), transparent 70%), 
+              #0a0f1f;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem;
 }
 
+/* Floating animation background glow */
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(59,130,246,0.25), transparent 60%);
+  filter: blur(100px);
+  animation: floatGlow 6s ease-in-out infinite alternate;
+}
+@keyframes floatGlow {
+  from { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  to { transform: translate(40px, 30px) scale(1.2); opacity: 1; }
+}
+
+/* Login Card */
 .login-box {
   width: 100%;
-  max-width: 400px;
-  background-color: #1f2937; /* gray-800 */
-  border-radius: 0.75rem;
-  padding: 2rem;
-  border: 1px solid #374151; /* gray-700 */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  max-width: 420px;
+  background: rgba(17, 24, 39, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  backdrop-filter: blur(16px);
+  border-radius: 1.25rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 0 25px rgba(59,130,246,0.15);
+  position: relative;
+  z-index: 10;
+  transition: all 0.4s ease;
 }
 
+.login-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px rgba(59,130,246,0.3);
+}
+
+/* Header */
 .login-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1.5rem;
-}
-.login-header h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0.5rem 0 0 0;
+  margin-bottom: 2rem;
 }
 
-.login-form .input-group {
-  margin-bottom: 1rem;
+.login-header h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-top: 1rem;
+  text-shadow: 0 0 15px rgba(59,130,246,0.5);
+  animation: glowPulse 3s ease-in-out infinite;
 }
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(59,130,246,0.4); }
+  50% { text-shadow: 0 0 20px rgba(59,130,246,0.7); }
+}
+
+/* Input Fields */
+.login-form .input-group {
+  margin-bottom: 1.25rem;
+}
+
 .login-form .input-group label {
   display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #9ca3af; /* gray-400 */
+  font-size: 0.9rem;
+  color: #93c5fd;
   margin-bottom: 0.5rem;
-}
-.login-form .input-group input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  background-color: #374151; /* gray-700 */
-  border: 1px solid #4b5563; /* gray-600 */
-  border-radius: 0.5rem;
-  color: #fff;
-  font-size: 1rem;
-}
-.login-form .input-group input:focus {
-  outline: none;
-  border-color: #2563eb; /* blue-600 */
-  box-shadow: 0 0 0 2px #2563eb;
+  font-weight: 500;
 }
 
-/* --- Button Styles --- */
+.login-form .input-group input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 0.75rem;
+  color: #f9fafb;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+}
+
+.login-form .input-group input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.login-form .input-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 12px rgba(59,130,246,0.5);
+  background: rgba(255,255,255,0.1);
+}
+
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  border-radius: 0.75rem;
   font-weight: 600;
   font-size: 1rem;
-  border: none;
   cursor: pointer;
-  transition: all 0.2s;
-  background-color: #374151;
+  border: none;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
   color: #fff;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(37,99,235,0.4);
 }
+
+.btn:hover {
+  background: linear-gradient(90deg, #1d4ed8, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(37,99,235,0.6);
+}
+
 .btn .icon {
-  width: 18px;
-  height: 18px;
   margin-right: 0.5rem;
+}
+
+/* Sign-up link */
+.login-form p {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #9ca3af;
+  margin-top: 1.25rem;
+}
+
+.login-form p span {
+  color: #3b82f6;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.login-form p span:hover {
+  color: #60a5fa;
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 1.75rem 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .login-header h1 {
+    font-size: 1.5rem;
+  }
 }
 .btn:hover {
   background-color: #4b5563;
@@ -1152,6 +1244,459 @@ span[class*="bg-rose"] {
 .metric-card .card-footer {
   color: #9ca3af; /* gray-400 */  
 }
+/* === Forecast Page === */
+.forecast-page {
+  color: #fff;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.forecast-card {
+  background: rgba(31, 41, 55, 0.7);
+  border: 1px solid rgba(55, 65, 81, 0.8);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease;
+}
+.forecast-card:hover {
+  transform: translateY(-4px);
+}
+
+.forecast-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.forecast-header .icon {
+  width: 22px;
+  height: 22px;
+  color: #93c5fd;
+}
+.forecast-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.forecast-header p {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.forecast-body h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #fff;
+}
+.forecast-body .change {
+  color: #4ade80;
+  font-weight: 600;
+}
+.forecast-body .desc {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Drivers section */
+.drivers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.driver-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.bar-bg {
+  flex-grow: 1;
+  height: 8px;
+  background: #1f2937;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 8px;
+}
+.percent {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+.nav-item a.active .icon {
+  color: #60a5fa; /* bright blue accent */
+}
+/* --- Sidebar Enhancements --- */
+.sidebar {
+  background-color: #1e293b; /* dark navy */
+  border-right: 1px solid #374151;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 256px;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.logo-icon {
+  color: #60a5fa; /* blue accent */
+  width: 28px;
+  height: 28px;
+}
+
+.sidebar-nav {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-bottom: 0.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.nav-link.active {
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+  position: relative;
+}
+
+.nav-link.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 4px;
+  border-radius: 4px;
+  background: #60a5fa;
+  box-shadow: 0 0 10px #60a5fa;
+}
+
+.nav-link .icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.85;
+}
+.nav-link.active .icon {
+  opacity: 1;
+  color: #fff;
+}
+/* =======================================================
+   ✈️ FLIGHTDASH AUTH PAGE — FINAL WALK FIX + LOGO TRANSITION
+   ======================================================= */
+
+.auth-scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #0f172a;
+  color: #f9fafb;
+  overflow: hidden;
+  position: relative;
+  transition: all 1s ease;
+  perspective: 1000px;
+}
+
+/* During exit (after clicking sign in) */
+.auth-scene.exit {
+  opacity: 1;
+  transition: none;
+}
+
+/* === WALKING FIGURE CONTAINER === */
+.walk-figure {
+  position: absolute;
+  left: 13%;
+  bottom: 25%;
+  width: 120px;
+  height: 280px; /* taller to avoid compression */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: walkIn 1.3s ease-out forwards;
+  z-index: 3;
+}
+
+@keyframes walkIn {
+  from {
+    opacity: 0;
+    transform: translateX(-250px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* When leaving (walk + fade) */
+.auth-scene.exit .walk-figure {
+  animation: walkOutFadeReset 2s ease-in forwards;
+}
+
+@keyframes walkOutFadeReset {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(180px);
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(260px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(360px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* === BODY STRUCTURE === */
+.figure-body {
+  position: relative;
+  width: 80px;
+  height: 300px; /* increased height for proper proportions */
+  margin: auto;
+}
+
+.head {
+  width: 70px;
+  height: 80px;
+  border-radius: 50%;
+  background: #f59e0b;
+  margin: 0 auto;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.7);
+}
+
+.torso {
+  width: 28px;
+  height: 150px;
+  background: #f59e0b;
+  border-radius: 8px;
+  margin: 0 auto;
+  position: relative;
+  top: -100px;
+}
+
+/* ARMS */
+.arm {
+  position: absolute;
+  width: 26px;
+  height: 100px;
+  background: #f59e0b;
+  border-radius: 10px;
+  top: 70px;
+  transform-origin: top center;
+}
+
+.arm.left {
+  left: -20px;
+  animation: swing 1s ease-in-out infinite alternate;
+}
+.arm.right {
+  right: -20px;
+  animation: swing 1s ease-in-out infinite alternate-reverse;
+}
+
+/* LEGS */
+.leg {
+  position: absolute;
+  width: 28px;
+  height: 120px;
+  background: #f59e0b;
+  border-radius: 10px;
+  bottom: 0;
+  transform-origin: top center;
+}
+
+.leg.left {
+  left: 10px;
+  animation: step 1s ease-in-out infinite alternate;
+}
+.leg.right {
+  right: 10px;
+  animation: step 1s ease-in-out infinite alternate-reverse;
+}
+
+/* === SMOOTH MOTION === */
+@keyframes swing {
+  from { transform: rotate(25deg); }
+  to { transform: rotate(-25deg); }
+}
+@keyframes step {
+  from { transform: rotate(20deg); }
+  to { transform: rotate(-20deg); }
+}
+
+/* Reset pose before fading */
+.auth-scene.exit .arm,
+.auth-scene.exit .leg {
+  animation: resetPose 0.6s forwards;
+}
+@keyframes resetPose {
+  from { transform: rotate(0); }
+  to { transform: rotate(0); }
+}
+
+/* === TRAIL LINES === */
+.motion-lines {
+  position: absolute;
+  top: 45%;
+  left: -90px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.motion-lines span {
+  display: block;
+  width: 70px;
+  height: 5px;
+  background: #f59e0b;
+  border-radius: 5px;
+  opacity: 0.7;
+  animation: moveLines 1.6s linear infinite;
+}
+@keyframes moveLines {
+  from { transform: translateX(0); opacity: 0.8; }
+  to { transform: translateX(-50px); opacity: 0; }
+}
+
+/* === FLIGHTDASH GLOW LOGO === */
+@keyframes glowLogo {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 45px #3b82f6);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+.auth-scene.exit::after {
+  content: "✈️ FlightDash";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #3b82f6;
+  letter-spacing: 2px;
+  text-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
+  animation: glowLogo 2.4s ease-in-out 1.1s forwards;
+  opacity: 0;
+  z-index: 10;
+}
+
+/* === AUTH CARD === */
+.auth-card {
+  position: relative;
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  z-index: 5;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+.auth-card.slide-signup { transform: rotateY(180deg); }
+.auth-card.slide-login { transform: rotateY(0deg); }
+
+/* === FORM === */
+.auth-form { position: absolute; width: 100%; opacity: 0; transform: rotateY(180deg); transition: 0.6s; }
+.auth-form.active { opacity: 1; transform: rotateY(0deg); position: relative; }
+
+/* === INPUTS === */
+.auth-form .input-group { margin-bottom: 1.25rem; }
+.auth-form .input-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #4b5563;
+  background-color: #374151;
+  color: #fff;
+}
+.auth-form .input-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
+}
+
+/* === BUTTONS === */
+.btn { width: 100%; padding: 0.8rem; border-radius: 0.5rem; font-weight: 600; cursor: pointer; border: none; }
+.btn-primary { background: #2563eb; color: #fff; }
+.btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
+
+/* === SWITCH TEXT === */
+.switch-text { text-align: center; font-size: 0.9rem; color: #9ca3af; margin-top: 1.25rem; }
+.switch-text span { color: #3b82f6; font-weight: 600; cursor: pointer; }
+.switch-text span:hover { color: #60a5fa; }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .walk-figure { display: none; }
+  .auth-card { margin: 0; max-width: 90%; }
+}
+
 /* ======= END OF ENHANCEMENTS PATCH ======= */
 
 

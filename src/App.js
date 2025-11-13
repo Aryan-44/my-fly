@@ -8,6 +8,8 @@ import Dashboard from './components/DashboardLayout'; // This is your sidebar co
 import SeatDemandPage from './pages/SeatDemandPage';
 import FlightOpsPage from './pages/FlightOpsPage'; // <-- 1. UNCOMMENT THIS LINE
 import PassengersPage from './pages/PassengersPage';
+import ForecastPage from "./pages/ForecastPage"; // ✅ Import your new page
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); 
@@ -17,6 +19,7 @@ function App() {
     setIsLoggedIn(true);
   };
 
+
   // 3. A helper function to render the correct page
   const renderCurrentPage = () => {
     switch (currentPage) {
@@ -24,6 +27,8 @@ function App() {
         return <DashboardPage />;
       case 'seatDemand':
         return <SeatDemandPage />;
+      case 'forecasts': // ✅ Add a case for your new page  
+        return <ForecastPage />;
       case 'flightOps': // <-- 2. UNCOMMENT THIS BLOCK
         return <FlightOpsPage />;
       case 'passengers':

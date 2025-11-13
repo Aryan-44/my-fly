@@ -71,6 +71,7 @@ const SeatDemandPage = () => {
       });
       const json = await res.json();
       setData(json);
+      localStorage.setItem("latestForecastUpdate", Date.now());
       if (json.error) setError(json.error);
     } catch (err) {
       setError("Failed to analyze file");
@@ -96,8 +97,7 @@ const SeatDemandPage = () => {
   };
 
   return (
-  <div className="seat-demand-page p-8 text-white space-y-6">
-
+    <div className="seat-demand-page p-8 text-white space-y-6">
       <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
         Seat Demand Forecast
       </h1>
@@ -146,32 +146,23 @@ const SeatDemandPage = () => {
             </Card>
             <Card>
               <Stat
-                label="Festive Season Avg"
-                value={`${data.festive_avg || 0} seats`}
-                icon={BarChart3}
-              />
-            </Card>
-            <Card>
-              <Stat
                 label="Records Analyzed"
                 value={data.records_analyzed || 0}
                 icon={Database}
               />
             </Card>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
             <Card>
               <Stat
                 label="Target Column"
                 value={data.target_column || "Unknown"}
-                icon={TrendingUp}
+                icon={BarChart3}
               />
             </Card>
-            <Card>
-              <Stat label="Message" value={data.message || "Complete"} icon={BarChart3} />
-            </Card>
           </div>
+
+          <Card>
+            <Stat label="Message" value={data.message || "Complete"} icon={BarChart3} />
+          </Card>
 
           {/* Monthly Trend Chart */}
           <Card>
@@ -228,7 +219,6 @@ const SeatDemandPage = () => {
                   <th className="py-2 pr-4">Source</th>
                   <th className="py-2 pr-4">Dataset</th>
                   <th className="py-2 pr-4">Predicted</th>
-                  <th className="py-2 pr-4">Festive Avg</th>
                   <th className="py-2 pr-4">Records</th>
                   <th className="py-2 pr-4">Message</th>
                   <th className="py-2 pr-4">Created</th>
@@ -240,7 +230,6 @@ const SeatDemandPage = () => {
                     <td className="py-2 pr-4">{r.source}</td>
                     <td className="py-2 pr-4">{r.dataset_name}</td>
                     <td className="py-2 pr-4 text-green-400">{r.predicted_demand}</td>
-                    <td className="py-2 pr-4 text-yellow-400">{r.festive_avg}</td>
                     <td className="py-2 pr-4">{r.records_analyzed || "-"}</td>
                     <td className="py-2 pr-4">{r.message}</td>
                     <td className="py-2 pr-4 text-white/70">
@@ -258,4 +247,5 @@ const SeatDemandPage = () => {
     </div>
   );
 };
+
 export default SeatDemandPage;
